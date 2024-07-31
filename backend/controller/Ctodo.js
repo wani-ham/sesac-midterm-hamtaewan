@@ -1,14 +1,3 @@
-// router.post('/todos', controller.postTodos);
-
-// router.get('/todos', controller.getTodos);
-
-// router.get('/todos/:id', controller.getTodoByID);
-
-// router.patch('/todos/:id', controller.patchTodos);
-
-// router.delete('/todos/:id', controller.deleteTodos);
-
-
 const { DataTypes } = require('sequelize');
 const { sequelize, Recipe_Img, Likes } = require('../models/index');
 const TodoModel = require('../models/Todo');
@@ -76,9 +65,24 @@ exports.patchTodos = async (req, res) => {
 
 exports.deleteTodos = async (req, res) => {
     try {
-
+        const todoId = req.params.id;
+        const todoDelete = await Todos.destroy(
+            {
+                where: {id: todoId}
+            }
+        )
+        if (todoDelete) {
+            res.json({
+                message: "Todo deleted successfully",
+                deletedId: todoId
+            })
+        } else {
+            res.json({
+                "message": "Todo not found"
+            })
+        }
     } catch (err) {
-        
+        console.error(err);
     }
 }
 
