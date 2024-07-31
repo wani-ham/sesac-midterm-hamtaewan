@@ -12,6 +12,4 @@ db.Sequelize = Sequelize;
 
 db.Todo = TodoModel;
 
-
-
 module.exports = db;
