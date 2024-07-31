@@ -1,0 +1,7 @@
+#todo-list {
+    list-style-type: none;
+}
+
+li {
+    display: flex;
+}
