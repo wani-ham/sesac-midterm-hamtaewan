@@ -79,6 +79,7 @@ form {
     margin: 15px 0;
     padding: 0.8rem;
     width: 100%;
+    max-width: 800px;
 }
 
 form input {
