@@ -1,8 +1,20 @@
+html, body, h1, h2, h3, h4, h5, h6, p, ul, ol,
+dl, dt, dd, figure, figcaption, section, address, table, thead, tbody,
+tfoot, tr, th, td, article {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    height: 100%;
+}
+
 body {
     display: flex;
     align-items: center;
     flex-direction: column;
     max-height: 800px;
+    height: 100vh;
     box-sizing: content-box;
 }
 
@@ -14,10 +26,9 @@ main {
 }
 
 header {
-    
     font-size: 3rem;
     min-height: 100px;
-    /* width: inherit; */
+    width: 100%;
     background-color: green;
     margin-top: 0px;
     max-width: 800px;
@@ -55,6 +66,10 @@ li {
 .checkbox-clicked {
     text-decoration: line-through;
     color: red;
+}
+
+.delete-btn {
+    height: 100%;
 }
 
 form {

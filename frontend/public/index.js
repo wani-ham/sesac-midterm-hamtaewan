@@ -21,6 +21,7 @@ function getTodos() {
 
                 let deleteButton = document.createElement('button');
                 deleteButton.setAttribute("type", "submit");
+                deleteButton.setAttribute("class", "delete-btn");
                 deleteButton.textContent = "X";
                 deleteButton.onclick = deleteTodo;
 
