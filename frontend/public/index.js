@@ -61,7 +61,7 @@ const checkboxClicked = (element) => {
 
 // add todo
 const addInput = document.querySelector("#add-todo");
-document.querySelector('form').addEventListener("submit", (e) => {
+function addTodo(e) {
     console.log(addInput);
     if(addInput.value === "") alert("내용을 입력해주세요!");
     else {
@@ -95,7 +95,8 @@ document.querySelector('form').addEventListener("submit", (e) => {
         flag++;
     }
     e.preventDefault();
-});
+} 
+document.querySelector('form').addEventListener("submit", addTodo);
 
 
 
