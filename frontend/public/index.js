@@ -38,6 +38,7 @@ function getTodos() {
                 secondDiv.appendChild(deleteButton);
                 secondDiv.setAttribute("class", "todo-div");
 
+                // listRow.appendChild(firstDiv.cloneNode(true));
                 listRow.appendChild(firstDiv);
                 listRow.appendChild(secondDiv);
                 todoList.appendChild(listRow);
