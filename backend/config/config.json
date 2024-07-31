@@ -1,0 +1,9 @@
+{
+    "development": {
+      "username": "user_21",
+      "password": "codingon_21",
+      "database": "db_21",
+      "host": "sesac.crc4ixxthqzf.ap-northeast-2.rds.amazonaws.com",
+      "dialect": "mysql"
+    }
+}
