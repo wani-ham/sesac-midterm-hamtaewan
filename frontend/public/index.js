@@ -27,13 +27,16 @@ function getTodos() {
                 firstSpan.textContent = json[i].title;
                 secondSpan.textContent = json[i+1].title;
                 
+                
                 firstDiv.appendChild(inputCheckbox);
                 firstDiv.appendChild(firstSpan);
                 firstDiv.appendChild(deleteButton);
+                firstDiv.setAttribute("class", "todo-div");
                 
                 secondDiv.appendChild(inputCheckbox);
                 secondDiv.appendChild(secondSpan);
                 secondDiv.appendChild(deleteButton);
+                secondDiv.setAttribute("class", "todo-div");
 
                 listRow.appendChild(firstDiv);
                 listRow.appendChild(secondDiv);
@@ -55,35 +58,40 @@ const checkboxClicked = (element) => {
 
 
 // add todo
-const addInput = document.querySelector("form");
-addInput.addEventListener("submit", (e) => {
-    console.log(addInput.value);
-
-    let listRow = document.createElement('li');
-    let firstDiv = document.createElement('div');
-    let firstSpan = document.createElement('span');
-    let inputCheckbox = document.createElement('input');
-    inputCheckbox.setAttribute("type", "checkbox");
-
-    firstSpan.innerText = addInput.value;
-
-    let deleteButton = document.createElement('button');
-    deleteButton.setAttribute("type", "submit");
-    deleteButton.textContent = "X";
-    deleteButton.onclick = deleteTodo;
-
-    firstDiv.appendChild(inputCheckbox);
-    firstDiv.appendChild(firstSpan);
-    firstDiv.appendChild(deleteButton);
-
-    if(flag%2 == 0) {
-        listRow.appendChild(firstDiv);
-        todoList.appendChild(listRow);
-    } else {
-        listRow.appendChild(firstDiv);
-    }
+const addInput = document.querySelector("#add-todo");
+document.querySelector('form').addEventListener("submit", (e) => {
+    console.log(addInput);
+    if(addInput.value === "") alert("내용을 입력해주세요!");
+    else {
+        let listRow = document.createElement('li');
+        let firstDiv = document.createElement('div');
+        let firstSpan = document.createElement('span');
+        let inputCheckbox = document.createElement('input');
+        inputCheckbox.setAttribute("type", "checkbox");
+        inputCheckbox.onclick = checkboxClicked;
     
-    flag++;
+        firstSpan.innerText = addInput.value;
+    
+        let deleteButton = document.createElement('button');
+        deleteButton.setAttribute("type", "submit");
+        deleteButton.textContent = "X";
+        deleteButton.onclick = deleteTodo;
+    
+        firstDiv.appendChild(inputCheckbox);
+        firstDiv.appendChild(firstSpan);
+        firstDiv.appendChild(deleteButton);
+        firstDiv.setAttribute("class", "todo-div");
+    
+        if(flag%2 == 0) {
+            listRow.appendChild(firstDiv);
+            todoList.appendChild(listRow);
+        } else {
+            console.log(document.querySelector('li:last-child'));
+            document.querySelector('li:last-child').appendChild(firstDiv)
+        }
+        addInput.value = '';
+        flag++;
+    }
     e.preventDefault();
 });
 
