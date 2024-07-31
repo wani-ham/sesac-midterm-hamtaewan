@@ -5,3 +5,8 @@
 li {
     display: flex;
 }
+
+.checkbox-clicked {
+    text-decoration: line-through;
+    color: red;
+}
